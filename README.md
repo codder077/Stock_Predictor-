@@ -124,19 +124,6 @@ Residuals vs Predicted:
 
 ![Residuals Scatter](models/residuals_scatter.png)
 
-## Why predictions changed between runs
-
-- The project stores the model file name as `FF_Model.pkl` (see `src/config.py`). If you had an earlier model named differently (e.g. `rf_model.pkl`) the API would have used that older file.
-- The training code was updated to:
-  - use a 5-day rolling mean (feature change),
-  - perform a chronological 80/20 train/test split,
-  - apply feature scaling with `StandardScaler` and save `scaler.pkl`, and
-  - optionally apply a signed-log target transform before training (controlled by `TARGET_TRANSFORM` in `src/train.py`).
-
-These changes (especially scaling and the target transform) will change the numeric predictions. To reproduce a previous result you can either:
-
-- restore an older model file (if you kept it under `models/` as `rf_model.pkl`), or
-- retrain with `TARGET_TRANSFORM=False` and/or tweak hyperparameters in `src/train.py`.
 
 
 ## Next steps and suggestions
@@ -146,4 +133,3 @@ These changes (especially scaling and the target transform) will change the nume
 - Try alternative models (GradientBoosting, LightGBM) or quantile regression to predict tails.
 - Add a `/metrics` API endpoint to surface `metrics.json` and optionally serve the diagnostic images.
 
-If you want, I can add any of the above changes and/or a small `tools/compare_models.py` script to make comparisons reproducible.
