@@ -1,0 +1,11 @@
+{
+  "mse": 2371.7782196646126,
+  "r2": -0.01637239893871456,
+  "n_samples": 3797,
+  "features": [
+    "Data_Lag1",
+    "Data_Change_PrevDay",
+    "Data_Rolling_Mean"
+  ],
+  "target_transform": true
+}

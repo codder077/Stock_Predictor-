@@ -1,0 +1,12 @@
+# Data Analytics and ML
+numpy
+pandas
+matplotlib
+seaborn
+scikit-learn
+joblib
+
+# API
+fastapi
+uvicorn
+pydantic
